@@ -1619,6 +1619,38 @@ function ResumeBlock({ title, children }: { title: string; children: React.React
 /* CONTACT — handwritten letter */
 /* =============================================================== */
 export function ContactSection() {
+  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (submissionStatus === "sending") return;
+
+    setSubmissionStatus("sending");
+
+    const form = event.currentTarget;
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${portfolio.contact.email}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
+      });
+
+      const result = (await response.json()) as { success?: boolean | string };
+      if (!response.ok || (result.success !== true && result.success !== "true")) {
+        throw new Error("Unable to send message");
+      }
+
+      form.reset();
+      setSubmissionStatus("sent");
+    } catch {
+      setSubmissionStatus("error");
+    }
+  }
+
   return (
     <div className="relative mx-auto max-w-3xl px-6 py-16">
       <SectionHeading
@@ -1651,8 +1683,7 @@ export function ContactSection() {
           <p className="font-hand text-3xl">{portfolio.contact.salutation}</p>
           <form
             className="mt-6 space-y-5"
-            action="https://formsubmit.co/bhumika.85p@gmail.com"
-            method="POST"
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="_subject" value="New portfolio message" />
             <input type="hidden" name="_captcha" value="false" />
@@ -1674,8 +1705,12 @@ export function ContactSection() {
               placeholder={portfolio.contact.messagePlaceholder}
             />
             <div className="flex items-center gap-4">
-              <SketchButton type="submit" fill="var(--color-terracotta)">
-                {portfolio.contact.sendLabel}
+              <SketchButton
+                type="submit"
+                fill="var(--color-terracotta)"
+                className={submissionStatus === "sending" ? "cursor-wait opacity-70" : ""}
+              >
+                {submissionStatus === "sending" ? "sending..." : portfolio.contact.sendLabel}
               </SketchButton>
               <p className="font-marker text-sm text-ink-soft">
                 or:{" "}
@@ -1684,6 +1719,18 @@ export function ContactSection() {
                 </a>
               </p>
             </div>
+            <p aria-live="polite" className="font-marker text-sm text-ink-soft">
+              {submissionStatus === "sent" && portfolio.contact.successMessage}
+              {submissionStatus === "error" && (
+                <>
+                  Your letter could not be sent. Please email me directly at{" "}
+                  <a className="sketch-underline" href={`mailto:${portfolio.contact.email}`}>
+                    {portfolio.contact.email}
+                  </a>
+                  .
+                </>
+              )}
+            </p>
           </form>
           <div className="mt-8 flex items-center justify-end gap-3 pr-8">
             <p className="font-hand text-2xl">{portfolio.contact.signoff}</p>
