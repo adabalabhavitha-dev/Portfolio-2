@@ -1,7 +1,7 @@
 import { motion, useAnimate } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useSound } from "./useSound";
-import { RunningCat } from "./RunningCat";
+import { WheelPuppy } from "./PuppyIllustrations";
 import portfolio from "@/content/portfolio.json";
 
 export type SectionKey =
@@ -71,7 +71,7 @@ const SECTOR_DATA: SectorInfo[] = [
     startAngle: 90,
     endAngle: 150,
     color: "var(--color-lavender)",
-    icon: "fish",
+    icon: "bone",
     rot: 15,
     iconColor: "var(--color-sage)",
   },
@@ -253,12 +253,14 @@ export function SketchbookWheel({ onSelect, size = 460 }: Props) {
             <path d="M14 15l2-3 2 3" fill="white" stroke="currentColor" strokeWidth="1" />
           </svg>
         );
-      case "fish":
+      case "bone":
         return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M2 12s4-5 10-5 8 5 8 5-2 5-8 5-10-5-10-5z" fill="currentColor" fillOpacity="0.2" />
-            <path d="M18 12l4-3v6z" fill="currentColor" fillOpacity="0.3" />
-            <circle cx="6" cy="11" r="1.5" fill="currentColor" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <path
+              d="M 5 8 C 3 8 2 9.5 2 11 C 2 12.2 2.7 13.1 3.7 13.6 C 2.7 14.1 2 15 2 16.2 C 2 17.7 3 19.2 5 19.2 C 6.5 19.2 7.7 18.2 8.1 16.9 L 15.9 16.9 C 16.3 18.2 17.5 19.2 19 19.2 C 21 19.2 22 17.7 22 16.2 C 22 15 21.3 14.1 20.3 13.6 C 21.3 13.1 22 12.2 22 11 C 22 9.5 21 8 19 8 C 17.5 8 16.3 9 15.9 10.3 L 8.1 10.3 C 7.7 9 6.5 8 5 8 Z"
+              fill="currentColor"
+              fillOpacity="0.25"
+            />
           </svg>
         );
       case "paper":
@@ -340,14 +342,26 @@ export function SketchbookWheel({ onSelect, size = 460 }: Props) {
               className="pointer-events-none"
             />
 
-            {/* Continuous inner circle border (defines center cat area) */}
+            {/* Continuous inner circle border — colored to match the golden puppy */}
             <circle
               cx={cx}
               cy={cy}
               r={innerR}
-              fill="var(--color-paper)"
+              fill="color-mix(in oklab, #f6cb85 28%, var(--color-paper))"
               stroke="var(--color-ink)"
               strokeWidth="2.5"
+              className="pointer-events-none"
+            />
+            {/* Decorative golden honey ring matching puppy fur */}
+            <circle
+              cx={cx}
+              cy={cy}
+              r={innerR - 6}
+              fill="none"
+              stroke="#d98f32"
+              strokeWidth="1.5"
+              strokeDasharray="4 4"
+              opacity="0.6"
               className="pointer-events-none"
             />
           </g>
@@ -403,7 +417,7 @@ export function SketchbookWheel({ onSelect, size = 460 }: Props) {
         })}
       </div>
 
-      {/* Downward triangle pointer at the top edge of the wheel */}
+      {/* Downward triangle pointer at the top edge of the wheel — golden caramel matching dog */}
       <div
         style={{
           position: "absolute",
@@ -417,7 +431,7 @@ export function SketchbookWheel({ onSelect, size = 460 }: Props) {
         <svg width="24" height="24" viewBox="0 0 24 24" style={{ filter: "url(#sketch-wobble)" }}>
           <path
             d="M 4 2 L 20 2 L 12 18 Z"
-            fill="var(--color-terracotta)"
+            fill="#d9822b"
             stroke="var(--color-ink)"
             strokeWidth="2.2"
             strokeLinejoin="round"
@@ -425,19 +439,20 @@ export function SketchbookWheel({ onSelect, size = 460 }: Props) {
         </svg>
       </div>
 
-      {/* Cat positioned so paws rest on the inner ring bottom */}
+      {/* Cartoon Puppy prominently positioned in the middle of the wheel */}
       <div
         style={{
           position: "absolute",
-          left: cx - (currentSize === 350 ? 60 : 80),
-          top: cy + innerR - (currentSize === 350 ? 86 : 98),
-          width: currentSize === 350 ? 120 : 160,
-          height: currentSize === 350 ? 86 : 115,
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          width: currentSize === 350 ? 135 : 180,
+          height: currentSize === 350 ? 135 : 180,
           pointerEvents: "none",
           zIndex: 6,
         }}
       >
-        <RunningCat speed={speed} />
+        <WheelPuppy speed={speed} />
       </div>
 
     </div>

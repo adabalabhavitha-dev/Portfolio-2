@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { SketchBox, SketchArrow, SketchButton } from "./sketch-ui";
 import { useSound } from "./useSound";
+import { AnimatedSleepingPuppy, SittingPuppy, PuppyInBasket } from "./PuppyIllustrations";
 import portfolio from "@/content/portfolio.json";
 
 /* =============================================================== */
@@ -10,523 +11,181 @@ import portfolio from "@/content/portfolio.json";
 export function HomeSection({ wheel }: { wheel: React.ReactNode }) {
   return (
     <div className="home-clean mx-auto flex min-h-[85vh] max-w-7xl flex-col items-center justify-center px-6 pt-12 relative overflow-hidden">
-      {/* === TOP LEFT: Cat in window frame === */}
+      {/* === TOP LEFT: Puppy daydreaming at the window sill === */}
       <div
         aria-hidden
         className="pointer-events-none absolute hidden md:block"
-        style={{ top: "4%", left: "3%", zIndex: 2 }}
+        style={{ top: "3%", left: "2.5%", zIndex: 2 }}
       >
-        <svg
-          width="110"
-          height="110"
-          viewBox="0 0 110 110"
-          style={{ filter: "url(#sketch-wobble)" }}
-        >
-          <rect
-            x="8"
-            y="8"
-            width="94"
-            height="80"
-            rx="4"
-            fill="color-mix(in oklab, var(--color-paper) 80%, var(--color-cream))"
-            stroke="var(--color-ink)"
-            strokeWidth="2"
-          />
-          <line x1="55" y1="8" x2="55" y2="88" stroke="var(--color-ink)" strokeWidth="1.5" />
-          <line x1="8" y1="48" x2="102" y2="48" stroke="var(--color-ink)" strokeWidth="1.5" />
-          <rect
-            x="4"
-            y="86"
-            width="102"
-            height="7"
-            rx="2"
-            fill="var(--color-ink)"
-            opacity="0.15"
-            stroke="var(--color-ink)"
-            strokeWidth="1.5"
-          />
-          <ellipse
-            cx="55"
-            cy="62"
-            rx="16"
-            ry="14"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1.2"
-          />
-          <circle
-            cx="55"
-            cy="44"
-            r="10"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1.2"
-          />
-          <polygon
-            points="46,36 42,26 52,34"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-          <polygon
-            points="64,36 68,26 58,34"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-          <circle cx="51" cy="43" r="1.2" fill="var(--color-ink)" />
-          <circle cx="59" cy="43" r="1.2" fill="var(--color-ink)" />
-          <path d="M 53 48 Q 55 50 57 48" stroke="var(--color-ink)" strokeWidth="0.9" fill="none" />
-          <ellipse
-            cx="46"
-            cy="75"
-            rx="6"
-            ry="4"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="64"
-            cy="75"
-            rx="6"
-            ry="4"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-        </svg>
-        <p
-          className="font-marker text-xs mt-1 text-center opacity-60"
-          style={{ color: "var(--color-ink)" }}
-        >
-          meow?
-        </p>
-      </div>
-
-      {/* === TOP RIGHT: Cat climbing curtains === */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute hidden md:block"
-        style={{ top: "2%", right: "2%", zIndex: 2 }}
-      >
-        <div style={{ position: "relative" }}>
-          <svg
-            width="120"
-            height="180"
-            viewBox="0 0 120 180"
-            style={{ overflow: "visible", filter: "url(#sketch-wobble)" }}
+        <div className="flex flex-col items-center" style={{ position: "relative" }}>
+          <div
+            className="relative p-2 rounded-2xl bg-cream/80 border-2 border-ink/40 shadow-sm"
+            style={{ filter: "url(#sketch-wobble)" }}
           >
-            <path
-              d="M 30 0 Q 20 30 28 60 Q 18 90 26 120 Q 16 150 24 180"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-              fill="none"
-              opacity="0.35"
+            <img
+              src="/puppy/puppy_peeking.webp"
+              alt="daydreaming puppy"
+              className="w-24 h-auto object-contain select-none"
+              draggable={false}
             />
-            <path
-              d="M 50 0 Q 42 35 48 65 Q 38 95 46 125 Q 36 155 44 180"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-              fill="none"
-              opacity="0.3"
-            />
-            <path
-              d="M 70 0 Q 62 30 68 60 Q 58 90 66 120 Q 56 150 64 180"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-              fill="none"
-              opacity="0.25"
-            />
-            <line
-              x1="10"
-              y1="2"
-              x2="110"
-              y2="2"
-              stroke="var(--color-ink)"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-            <circle cx="10" cy="2" r="4" fill="var(--color-ink)" opacity="0.6" />
-            <circle cx="110" cy="2" r="4" fill="var(--color-ink)" opacity="0.6" />
-            <circle
-              cx="90"
-              cy="45"
-              r="14"
-              fill="var(--color-cat)"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-            />
-            <polygon
-              points="82,32 76,18 88,30"
-              fill="var(--color-cat)"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-            />
-            <polygon
-              points="98,32 104,18 92,30"
-              fill="var(--color-cat)"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-            />
-            <circle cx="85" cy="44" r="1.5" fill="var(--color-ink)" />
-            <circle cx="95" cy="44" r="1.5" fill="var(--color-ink)" />
-            <path d="M 88 50 Q 90 52 92 50" stroke="var(--color-ink)" strokeWidth="1" fill="none" />
-            <ellipse
-              cx="80"
-              cy="30"
-              rx="5"
-              ry="3.5"
-              fill="var(--color-cat)"
-              stroke="var(--color-ink)"
-              strokeWidth="1"
-              transform="rotate(-30 80 30)"
-            />
-            <ellipse
-              cx="102"
-              cy="28"
-              rx="5"
-              ry="3.5"
-              fill="var(--color-cat)"
-              stroke="var(--color-ink)"
-              strokeWidth="1"
-              transform="rotate(20 102 28)"
-            />
-            <path
-              d="M 90 58 Q 108 75 102 88 Q 96 98 88 92"
-              stroke="var(--color-cat)"
-              strokeWidth="3"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M 90 58 Q 108 75 102 88 Q 96 98 88 92"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-              fill="none"
-              strokeLinecap="round"
-            />
-          </svg>
+          </div>
           <p
-            className="font-marker text-xs absolute opacity-60"
-            style={{ top: 85, left: -35, color: "var(--color-ink)", transform: "rotate(-8deg)" }}
+            className="font-marker text-xs mt-1 text-center opacity-70"
+            style={{ color: "var(--color-ink)" }}
           >
-            hold on!
+            daydreaming ~ 🐾
           </p>
         </div>
       </div>
 
-      {/* === LEFT: Sticky note — bugs features coffee repeat === */}
+      {/* === TOP RIGHT: Sitting & Wagging Puppy with natural blinking === */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute hidden md:block"
+        style={{ top: "2%", right: "2.5%", zIndex: 2 }}
+      >
+        <SittingPuppy />
+      </div>
+
+      {/* === LEFT: Decreased mini sticky note — puppy to-do list === */}
       <motion.div
         aria-hidden
-        initial={{ opacity: 0, x: -20 }}
+        initial={{ opacity: 0, x: -16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.8 }}
         className="pointer-events-none absolute hidden md:block"
-        style={{ top: "32%", left: "3%", zIndex: 2 }}
+        style={{ top: "20%", left: "3.5%", zIndex: 2 }}
       >
         <div
           style={{
             background: "color-mix(in oklab, var(--color-cream) 95%, var(--color-paper))",
-            border: "1.5px solid var(--color-ink)",
-            padding: "12px 16px",
-            width: 140,
-            boxShadow: "2px 3px 6px color-mix(in oklab, var(--color-ink) 18%, transparent)",
+            border: "1.2px solid var(--color-ink)",
+            padding: "5px 8px",
+            width: 86,
+            boxShadow: "1px 2px 4px color-mix(in oklab, var(--color-ink) 12%, transparent)",
             transform: "rotate(-3deg)",
             filter: "url(#sketch-wobble)",
           }}
         >
-          <p className="font-marker text-sm leading-relaxed" style={{ color: "var(--color-ink)" }}>
-            bugs:
+          <p className="font-marker text-[10px] leading-tight" style={{ color: "var(--color-ink)" }}>
+            fetch: ✓
             <br />
-            features:
+            nap: ✓
             <br />
-            coffee:
-            <br />
-            repeat:
+            wag tail: ✓
           </p>
         </div>
       </motion.div>
 
-      {/* === LEFT: Coffee cup === */}
+      {/* === LEFT MID: Sleeping puppy curled up with rhythmic breathing === */}
       <div
         aria-hidden
-        className="pointer-events-none absolute opacity-60 hidden md:block"
-        style={{ top: "17%", left: "15%", zIndex: 2 }}
+        className="pointer-events-none absolute hidden md:block"
+        style={{ top: "37%", left: "3%", zIndex: 2 }}
       >
-        <svg width="40" height="50" viewBox="0 0 40 50" style={{ filter: "url(#sketch-wobble)" }}>
-          <path
-            d="M 4 16 Q 4 40 20 40 Q 36 40 36 16 Z"
-            fill="var(--color-terracotta)"
-            opacity="0.55"
-            stroke="var(--color-ink)"
-            strokeWidth="1.2"
-          />
-          <path d="M 4 16 L 36 16" stroke="var(--color-ink)" strokeWidth="1.2" />
-          <path
-            d="M 36 22 Q 46 22 46 28 Q 46 35 36 35"
-            stroke="var(--color-ink)"
-            strokeWidth="1.2"
-            fill="none"
-          />
-          <path
-            d="M 8 14 Q 10 10 12 6"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-            fill="none"
-            opacity="0.5"
-          />
-          <path
-            d="M 18 12 Q 20 8 22 12 Q 24 16 26 12"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-            fill="none"
-            opacity="0.4"
-          />
-          <rect
-            x="2"
-            y="40"
-            width="36"
-            height="5"
-            rx="1"
-            fill="var(--color-ink)"
-            opacity="0.2"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-        </svg>
-        <p className="font-marker text-xs mt-0.5 opacity-70" style={{ color: "var(--color-ink)" }}>
-          coffee
+        <AnimatedSleepingPuppy />
+      </div>
+
+      {/* === LEFT: Hand-drawn dog bone & tennis ball === */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute hidden md:block opacity-80"
+        style={{ top: "72%", left: "3.5%", zIndex: 2 }}
+      >
+        <div className="flex items-center gap-2">
+          {/* Real Dog Bone */}
+          <svg width="48" height="24" viewBox="0 0 56 30" style={{ filter: "url(#sketch-wobble)", transform: "rotate(-10deg)" }}>
+            <path
+              d="M 12 7 C 8 7 5 10 5 13 C 5 15 7 16.5 9 17 C 7 17.5 5 19 5 21 C 5 24 8 27 12 27 C 15 27 17 25 18 23 L 38 23 C 39 25 41 27 44 27 C 48 27 51 24 51 21 C 51 19 49 17.5 47 17 C 49 16.5 51 15 51 13 C 51 10 48 7 44 7 C 41 7 39 9 38 11 L 18 11 C 17 9 15 7 12 7 Z"
+              fill="var(--color-cream)"
+              stroke="var(--color-ink)"
+              strokeWidth="1.5"
+              strokeLinejoin="round"
+            />
+            <path d="M 12 11 L 15 15 M 12 23 L 15 19 M 41 15 L 44 11 M 41 19 L 44 23" stroke="var(--color-ink)" strokeWidth="0.8" opacity="0.35" strokeLinecap="round" />
+          </svg>
+
+          {/* Fuzzy Tennis Ball */}
+          <svg width="22" height="22" viewBox="0 0 26 26" style={{ filter: "url(#sketch-wobble)" }}>
+            <circle cx="13" cy="13" r="11" fill="color-mix(in oklab, var(--color-sage) 70%, #d4e157)" stroke="var(--color-ink)" strokeWidth="1.3" />
+            <path d="M 4 13 C 8 7 18 7 22 13" stroke="white" strokeWidth="1.5" fill="none" opacity="0.9" />
+            <path d="M 4 13 C 8 19 18 19 22 13" stroke="white" strokeWidth="1.5" fill="none" opacity="0.9" />
+          </svg>
+        </div>
+        <p className="font-marker text-[10px] mt-0.5 opacity-65 text-center" style={{ color: "var(--color-ink)" }}>
+          fetch favorites 🎾🦴
         </p>
       </div>
 
-      {/* === LEFT: Paper plane === */}
+      {/* === LEFT: Paw prints trail === */}
       <div
         aria-hidden
-        className="pointer-events-none absolute opacity-55 hidden md:block"
-        style={{ top: "56%", left: "8%", zIndex: 2 }}
+        className="pointer-events-none absolute opacity-45 hidden md:block"
+        style={{ top: "84%", left: "4%", zIndex: 2 }}
       >
-        <svg
-          width="60"
-          height="40"
-          viewBox="0 0 60 40"
-          style={{ filter: "url(#sketch-wobble)", transform: "rotate(-15deg)" }}
-        >
-          <path
-            d="M 2 20 L 58 4 L 38 20 L 58 36 Z"
-            fill="var(--color-dusty-blue)"
-            stroke="var(--color-ink)"
-            strokeWidth="1.2"
-            opacity="0.7"
-          />
-          <line
-            x1="2"
-            y1="20"
-            x2="38"
-            y2="20"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-            opacity="0.5"
-          />
+        <svg width="45" height="55" viewBox="0 0 55 85" style={{ filter: "url(#sketch-wobble)" }}>
+          <g transform="translate(6, 6) rotate(-14 15 15)">
+            <path d="M 10 16 C 10 10 20 10 20 16 C 20 22 10 22 10 16 Z" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+            <circle cx="7" cy="11" r="2.4" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+            <circle cx="12" cy="7" r="2.6" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+            <circle cx="18" cy="7" r="2.6" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+            <circle cx="23" cy="11" r="2.4" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+          </g>
+          <g transform="translate(24, 34) rotate(16 15 15)">
+            <path d="M 10 16 C 10 10 20 10 20 16 C 20 22 10 22 10 16 Z" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+            <circle cx="7" cy="11" r="2.4" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+            <circle cx="12" cy="7" r="2.6" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+            <circle cx="18" cy="7" r="2.6" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+            <circle cx="23" cy="11" r="2.4" fill="var(--color-peach)" stroke="var(--color-ink)" strokeWidth="0.9" />
+          </g>
         </svg>
       </div>
 
-      {/* === RIGHT: Sticky note — don't forget to have fun === */}
+      {/* === RIGHT: Decreased mini sticky note — puppy wisdom === */}
       <motion.div
         aria-hidden
-        initial={{ opacity: 0, x: 20 }}
+        initial={{ opacity: 0, x: 16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.0 }}
         className="pointer-events-none absolute hidden md:block"
-        style={{ top: "30%", right: "3%", zIndex: 2 }}
+        style={{ top: "28%", right: "3%", zIndex: 2 }}
       >
         <div
           style={{
-            background: "color-mix(in oklab, var(--color-mustard) 40%, var(--color-cream))",
-            border: "1.5px solid var(--color-ink)",
-            padding: "12px 14px",
-            width: 130,
-            boxShadow: "2px 3px 6px color-mix(in oklab, var(--color-ink) 18%, transparent)",
+            background: "color-mix(in oklab, var(--color-peach) 40%, var(--color-cream))",
+            border: "1.2px solid var(--color-ink)",
+            padding: "5px 8px",
+            width: 82,
+            boxShadow: "1px 2px 4px color-mix(in oklab, var(--color-ink) 12%, transparent)",
             transform: "rotate(4deg)",
             filter: "url(#sketch-wobble)",
           }}
         >
-          <p className="font-marker text-sm leading-relaxed" style={{ color: "var(--color-ink)" }}>
-            don't forget
+          <p className="font-marker text-[10px] leading-tight" style={{ color: "var(--color-ink)" }}>
+            wag more,
             <br />
-            to have fun
+            bark less 🐾
           </p>
         </div>
       </motion.div>
 
-      {/* === RIGHT MID: Sleeping cat with zzz === */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute opacity-70 hidden md:block"
-        style={{ top: "54%", right: "5%", zIndex: 2 }}
-      >
-        <div style={{ position: "relative" }}>
-          <p
-            className="font-marker text-sm absolute opacity-70"
-            style={{ top: -14, right: 0, color: "var(--color-ink)" }}
-          >
-            zzz zzz zzz
-          </p>
-          <svg width="90" height="55" viewBox="0 0 90 55" style={{ filter: "url(#sketch-wobble)" }}>
-            <ellipse
-              cx="45"
-              cy="40"
-              rx="32"
-              ry="15"
-              fill="var(--color-paper-shade)"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-            />
-            <circle
-              cx="20"
-              cy="30"
-              r="13"
-              fill="var(--color-paper-shade)"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-            />
-            <polygon
-              points="14,19 10,10 19,18"
-              fill="var(--color-paper-shade)"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-            />
-            <polygon
-              points="26,19 30,10 21,18"
-              fill="var(--color-paper-shade)"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-            />
-            <path
-              d="M 15 30 Q 18 28 21 30"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-              fill="none"
-            />
-            <path
-              d="M 19 30 Q 22 28 25 30"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-              fill="none"
-            />
-            <path
-              d="M 76 40 Q 86 30 82 22 Q 78 15 72 20"
-              stroke="var(--color-ink)"
-              strokeWidth="2"
-              fill="none"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-      </div>
-
-      {/* === BOTTOM RIGHT: Black cat peeking from box === */}
+      {/* === BOTTOM RIGHT: Golden puppy in cozy wicker basket === */}
       <div
         aria-hidden
         className="pointer-events-none absolute hidden md:block"
-        style={{ bottom: "4%", right: "3%", zIndex: 2 }}
+        style={{ bottom: "3%", right: "2.5%", zIndex: 2 }}
       >
-        <svg
-          width="115"
-          height="100"
-          viewBox="0 0 115 100"
-          style={{ filter: "url(#sketch-wobble)" }}
-        >
-          <rect
-            x="5"
-            y="48"
-            width="105"
-            height="52"
-            rx="3"
-            fill="color-mix(in oklab, var(--color-mustard) 35%, var(--color-cream))"
-            stroke="var(--color-ink)"
-            strokeWidth="2"
-          />
-          <path
-            d="M 5 48 L 20 20 L 55 38 L 5 48"
-            fill="color-mix(in oklab, var(--color-mustard) 25%, var(--color-cream))"
-            stroke="var(--color-ink)"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M 110 48 L 95 20 L 60 38 L 110 48"
-            fill="color-mix(in oklab, var(--color-mustard) 25%, var(--color-cream))"
-            stroke="var(--color-ink)"
-            strokeWidth="1.5"
-          />
-          <ellipse
-            cx="57"
-            cy="55"
-            rx="22"
-            ry="12"
-            fill="#1a1a1a"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-          <circle
-            cx="57"
-            cy="42"
-            r="14"
-            fill="#1a1a1a"
-            stroke="var(--color-ink)"
-            strokeWidth="1.2"
-          />
-          <polygon
-            points="48,30 43,19 54,29"
-            fill="#1a1a1a"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-          <polygon
-            points="66,30 71,19 60,29"
-            fill="#1a1a1a"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-          <ellipse
-            cx="50"
-            cy="41"
-            rx="4.5"
-            ry="5.5"
-            fill="#ffd700"
-            stroke="var(--color-ink)"
-            strokeWidth="0.8"
-          />
-          <ellipse
-            cx="64"
-            cy="41"
-            rx="4.5"
-            ry="5.5"
-            fill="#ffd700"
-            stroke="var(--color-ink)"
-            strokeWidth="0.8"
-          />
-          <ellipse cx="50" cy="42" rx="2" ry="4.5" fill="#111" />
-          <ellipse cx="64" cy="42" rx="2" ry="4.5" fill="#111" />
-        </svg>
-        <p
-          className="font-marker text-xs text-center mt-0.5 opacity-60"
-          style={{ color: "var(--color-ink)" }}
-        >
-          important
-          <br />
-          stuff (maybe)
-        </p>
+        <PuppyInBasket />
       </div>
 
-      {/* === BOTTOM LEFT: psst... explore around === */}
+      {/* === BOTTOM LEFT: psst... sniff around === */}
       <div
         aria-hidden
         className="pointer-events-none absolute opacity-55 hidden md:block"
         style={{ bottom: "10%", left: "12%", zIndex: 2, transform: "rotate(-3deg)" }}
       >
         <p className="font-marker text-sm" style={{ color: "var(--color-ink)" }}>
-          psst... explore around
+          psst... sniff around 👃
         </p>
       </div>
 
@@ -543,7 +202,7 @@ export function HomeSection({ wheel }: { wheel: React.ReactNode }) {
       <TinyDoodleFlower style={{ top: "18%", right: "20%" }} rot={12} />
       <TinyDoodleFlower style={{ bottom: "20%", left: "44%" }} rot={25} />
       <TinyDoodleFlower style={{ top: "48%", right: "28%" }} rot={-6} />
-      <HiddenCat style={{ bottom: "6%", left: "10%" }} />
+      <HiddenPuppy style={{ bottom: "6%", left: "10%" }} />
 
       {/* tiny floating stars */}
       {[
@@ -689,9 +348,9 @@ function HomeDoodles() {
       <DoodleSmiley style={{ bottom: "12%", right: "27%" }} rot={-5} />
       <TinyDoodleFlower style={{ top: "39%", right: "24%" }} rot={10} />
       <TinyDoodleFlower style={{ bottom: "5%", right: "16%" }} rot={-12} />
-      <MiniCatDoodle style={{ top: "18%", right: "15%" }} />
-      <MiniCatDoodle style={{ top: "59%", right: "7%" }} />
-      <MiniCatDoodle style={{ top: "62%", left: "9%" }} />
+      <MiniPuppyDoodle style={{ top: "18%", right: "15%" }} />
+      <MiniPuppyDoodle style={{ top: "59%", right: "7%" }} />
+      <MiniPuppyDoodle style={{ top: "62%", left: "9%" }} />
       <div className="absolute left-[9%] top-[38%] h-20 w-24 -rotate-12 opacity-60">
         <svg
           viewBox="0 0 100 80"
@@ -718,25 +377,15 @@ function HomeDoodles() {
   );
 }
 
-function MiniCatDoodle({ style }: { style: React.CSSProperties }) {
+function MiniPuppyDoodle({ style }: { style: React.CSSProperties }) {
   return (
-    <div className="absolute opacity-55" style={style}>
-      <svg
-        width="32"
-        height="30"
-        viewBox="0 0 32 30"
-        fill="none"
-        stroke="var(--color-ink)"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        style={{ filter: "url(#sketch-wobble)" }}
-      >
-        <path d="M7 11 L6 3 L13 8 Q16 6 19 8 L26 3 L25 12 Q28 17 25 22 Q21 27 16 27 Q9 27 6 22 Q3 17 7 11 Z" />
-        <circle cx="12" cy="16" r="1" fill="var(--color-ink)" />
-        <circle cx="20" cy="16" r="1" fill="var(--color-ink)" />
-        <path d="M14 20 Q16 22 18 20 M5 18 L1 17 M6 21 L2 23 M26 18 L31 17 M25 21 L30 23" />
-      </svg>
+    <div className="absolute opacity-75 pointer-events-none select-none transition-transform hover:scale-110" style={style}>
+      <img
+        src="/puppy/puppy_peeking.webp"
+        alt="puppy doodle"
+        className="w-8 h-8 object-contain drop-shadow-sm"
+        draggable={false}
+      />
     </div>
   );
 }
@@ -780,7 +429,7 @@ export function AboutSection() {
         className="pointer-events-none absolute right-4 top-40 hidden md:block"
       />
       <TinyDoodleFlower style={{ top: 8, right: 40 }} rot={12} />
-      <HiddenCat style={{ bottom: 20, right: 20 }} />
+      <HiddenPuppy style={{ bottom: 20, right: 20 }} />
     </div>
   );
 }
@@ -1939,42 +1588,21 @@ function TinyDoodleFlower({ style, rot = 0 }: { style?: React.CSSProperties; rot
   );
 }
 
-function HiddenCat({ style }: { style?: React.CSSProperties }) {
+function HiddenPuppy({ style }: { style?: React.CSSProperties }) {
   const { play } = useSound();
   return (
     <button
-      aria-label="hidden cat"
-      onClick={() => play("meow")}
-      className="absolute opacity-60 transition-transform hover:scale-125 hover:opacity-100"
+      aria-label="hidden puppy"
+      onClick={() => play("bark")}
+      className="absolute opacity-75 transition-transform hover:scale-125 hover:opacity-100 cursor-pointer select-none"
       style={style}
     >
-      <svg width="28" height="24" viewBox="0 0 28 24">
-        <g style={{ filter: "url(#sketch-wobble)" }}>
-          <circle
-            cx="14"
-            cy="14"
-            r="8"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1.2"
-          />
-          <polygon
-            points="8,8 6,3 12,6"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-          <polygon
-            points="20,8 22,3 16,6"
-            fill="var(--color-cat)"
-            stroke="var(--color-ink)"
-            strokeWidth="1"
-          />
-          <circle cx="11" cy="14" r="1" fill="var(--color-ink)" />
-          <circle cx="17" cy="14" r="1" fill="var(--color-ink)" />
-          <path d="M 13 17 Q 14 18 15 17" stroke="var(--color-ink)" strokeWidth="0.8" fill="none" />
-        </g>
-      </svg>
+      <img
+        src="/puppy/puppy_peeking.webp"
+        alt="hidden puppy"
+        className="w-8 h-8 object-contain drop-shadow-sm"
+        draggable={false}
+      />
     </button>
   );
 }

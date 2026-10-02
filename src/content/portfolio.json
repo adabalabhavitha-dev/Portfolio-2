@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Bhumika Portfolio",
-    "description": "CS student at NIT Surat who builds too complicated full stack apps and sleeps a suspicious amount in between."
+    "title": "Bhavitha's Portfolio",
+    "description": "IT undergraduate at Sasi Institute of Technology & Engineering — curious learner, creative thinker, and someone who believes progress matters more than perfection."
   },
   "navigation": {
     "home": "home",
@@ -13,11 +13,11 @@
     "contact": "contact"
   },
   "home": {
-    "eyebrow": "~ if lost, return to the cat ~",
+    "eyebrow": "~ if lost, follow the paw prints ~",
     "greeting": "hello, I'm",
-    "name": "Bhumika",
+    "name": "Bhavitha",
     "instruction": "",
-    "subtext": "powered by curiosity (and coffee)"
+    "subtext": "powered by curiosity (and puppy energy)"
   },
   "wheel": {
     "about": { "label": "who am i?", "sublabel": "(about)" },
@@ -30,17 +30,17 @@
   "about": {
     "title": "about",
     "subtitle": "(a brain dump)",
-    "intro": "I'm a fourth year CSE student at NIT Surat who builds full stack apps with way more moving parts than they need to have. Payment systems, real time sync, whatever the project needs. Then I take a nap and pretend none of it happened (jk).",
+    "intro": "I'm an Information Technology undergraduate at Sasi Institute of Technology & Engineering. I enjoy exploring technology, learning new concepts, and understanding how ideas can become useful applications. I like drawing, designing, and creating, and I prefer learning through practical work and clear, step-by-step understanding.",
     "likesTitle": "things i like",
     "likes": [
-      "Sleeping (it's basically my main personality trait)",
-      "Novels that make me forget I have a deadline (Currently accepting life advice from Jane Austen).",
-      "Coffee (the fuel, not the beverage)",
-      "A todo list I get to check off, extra points if I made it unnecessarily complicated"
+      "Drawing and sketching (my favourite way to think visually)",
+      "Clean, simple, and organized design — extra points if it's satisfying to look at",
+      "Caring for plants (they're very patient teachers)",
+      "Exploring new places and experiences"
     ],
     "stackTitle": "stack, roughly",
-    "stack": "JavaScript and TypeScript, React, Next.js, Node, Express, NestJS, MongoDB, PostgreSQL, Socket.IO, Docker, and an amount of Redis job queues that should probably be reported.",
-    "current": "Currently building ContribIQ, an AI agent that reads your GitHub repos and tells you what you're secretly good at (usually more than your resume admits). Also recovering from an internship where I designed the brain of an entire recycling platform.",
+    "stack": "Python (most comfortable), basic Java and C, HTML, CSS, SQL / MySQL, and some Flutter / Dart. Currently exploring UI/UX design as an area of strong interest.",
+    "current": "Currently building my programming foundations — solving LeetCode problems daily with a focus on arrays, learning Data Structures and Algorithms, and working on small projects to understand each part of implementation from scratch.",
     "currentCaption": "that's what I'm doing now!"
   },
   "projectsSection": {
@@ -51,100 +51,81 @@
   },
   "projects": [
     {
-      "title": "Curio",
-      "blurb": "A community Q&A platform with an AI sidekick so you never sound dumb.",
-      "long": "A full stack MERN forum for asking questions, threading answers, and tagging content, with a personalized feed that actually learns what you care about instead of just showing you everything. An LLM powered assistant helps draft answers and suggest tags in real time, so you can look smarter than you feel at 2am.",
-      "tech": ["React", "Node.js", "Express", "MongoDB", "JWT", "Cloudinary"],
-      "liveUrl": "https://curio-ai-hazel.vercel.app/",
-      "sourceUrl": "https://github.com/bhumika-8/Curio-AI"
-    },
-    {
-      "title": "CollabCode",
-      "blurb": "Google Docs, but for code, and without the awkward account sign in.",
-      "long": "A real time collaborative code editor supporting 18 languages with Yjs CRDTs for conflict free syncing and live cursor presence. Untrusted code runs safely in per submission Docker containers that clean themselves up afterward, and a Redis and BullMQ job queue spread across worker nodes means a crashed worker doesn't lose your work. Nothing says fun weekend project like building a small distributed system.",
-      "tech": ["React", "Node.js", "Socket.IO", "Yjs", "BullMQ", "Redis", "Docker"],
+      "title": "Attendance Management System",
+      "blurb": "A web app that helps students, faculty, and admins manage attendance without the paper chaos.",
+      "long": "A team academic web application built with JSP, JDBC, MySQL, XAMPP, and HTML. Supports faculty and student login, student details management, department and course management, attendance marking and viewing, and dashboard pages backed by a MySQL database. This project gave me exposure to connecting web pages with a database and organizing features around different user roles.",
+      "tech": ["JSP", "JDBC", "MySQL", "XAMPP", "HTML"],
       "liveUrl": "",
-      "sourceUrl": "https://github.com/foramgandhicodecraft/Collaborative-Code-Editor"
+      "sourceUrl": ""
     },
     {
-      "title": "Word Warp",
-      "blurb": "A multiplayer party game built specifically to avoid doing actual work.",
-      "long": "Players create rooms, submit anonymous responses to prompts, and vote through a rotating judge. Think a fast, browser based party game with real time everything. Socket.IO keeps everyone's screen in sync so chaos stays perfectly synchronized chaos.",
-      "tech": ["React", "Node.js", "Express", "Socket.IO"],
-      "liveUrl": "https://word-warp-ten.vercel.app/",
-      "sourceUrl": "https://github.com/bhumika-8/word-warp"
-    },
-    {
-      "title": "ContribIQ",
-      "blurb": "An LLM agent that reads your GitHub and tells you what you're actually good at.",
-      "long": "Instead of trusting self reported tags or GitHub's raw language stats, ContribIQ parses dependency files across your repos to figure out your real skills, scores them with an LLM agent using a strict schema so nothing gets hallucinated, and then matches you to open source issues using vector similarity across skill, interest, difficulty, and time commitment. Basically a dating app, but it's matching you with GitHub issues instead of people.",
-      "tech": ["Next.js", "FastAPI", "PostgreSQL/pgvector", "LLM Agents", "Redis"],
+      "title": "BMI Calculator",
+      "blurb": "A simple introductory Flutter app — my first step into mobile development.",
+      "long": "I tried a simple BMI calculator while beginning to explore Flutter. The initial code was provided as a learning starting point, and I used it to begin understanding how a Flutter application works — how widgets are structured, how inputs connect to outputs, and how state changes. My next goal is to learn Flutter and Dart more deeply and gradually build mobile apps with more independence.",
+      "tech": ["Flutter", "Dart"],
       "liveUrl": "",
-      "sourceUrl": "https://github.com/Nirmeet47/contribiq"
+      "sourceUrl": ""
     },
     {
-      "title": "Chicago Crime Data Analytics",
-      "blurb": "Wrangled 7 million rows of crime data into something that actually makes sense.",
-      "long": "Processed a 7 million plus row dataset using Dask for distributed, out of memory computation, built an ETL pipeline to clean out the mess (missing values, duplicates, garbage coordinates), and dug into peak crime hours, hotspots, and multi year trends across Chicago. Turns out spreadsheets can be genuinely unsettling at scale.",
-      "tech": ["Python", "Pandas", "Dask", "Matplotlib", "Seaborn"],
+      "title": "FinTech Hackathon",
+      "blurb": "Explored how technology could reduce faculty workload during paper correction.",
+      "long": "I participated in a team hackathon focused on the problem of reducing faculty workload during paper correction. The concept explored how technology might make evaluation work more manageable. This experience introduced me to team-based problem exploration and thinking about a practical challenge in an educational setting — something I found genuinely interesting.",
+      "tech": ["Team Collaboration", "Problem Exploration", "Educational Tech"],
       "liveUrl": "",
-      "sourceUrl": "https://github.com/foramgandhicodecraft/DSLab_Project_CrimeDataAnalytics_NirmeetParmar_U23CS047"
+      "sourceUrl": ""
     }
   ],
   "experienceSection": { "title": "work scrapbook", "subtitle": "" },
   "experience": {
-    "company": "ReThink",
-    "role": "Software Development Intern",
-    "dates": "May 2026 to July 2026",
-    "location": "Remote",
-    "projectsLabel": "projects i built",
+    "company": "CodeChef",
+    "role": "Self-Directed Learner",
+    "dates": "Ongoing",
+    "location": "Online",
+    "projectsLabel": "what i've done",
     "projects": [
       {
         "number": "01",
-        "title": "Collection Centre Platform",
-        "description": "A five role recycling platform connecting collection centres, recyclers, aggregators, students, and admins.",
-        "tech": ["React", "TypeScript", "Node.js", "MongoDB", "Firebase"],
-        "long": "- Wrote the PRDs and designed the data model for a five role platform (admin, aggregator, centre, recycler, student), each with its own dashboard\n- Built phone OTP onboarding with an admin approval queue, so random people couldn't just declare themselves a recycling centre\n- Built the scan to reward loop, scan an item, watch points called Karma show up instantly, feel unreasonably proud of a plastic bottle\n- Set up automatic recycler matching by area, material, and proximity, so pickups stop landing on someone three cities away\n- Built a two way payout system with Razorpay so centres and recyclers actually get paid, plus monthly reports nobody asked for but everyone secretly liked"
+        "title": "500 Problems Solved",
+        "description": "Solved 500 problems on CodeChef and completed the Learn C Programming lessons and associated practice problems.",
+        "tech": ["C", "Python", "Problem Solving"],
+        "long": "- Solved 500 problems on CodeChef, building systematic thinking skills\n- Completed the Learn C Programming lessons and projects on CodeChef\n- Completed the associated C programming practice problems\n- Practiced approaching scenario-based programming questions and working through logical difficulties\n- Currently solving a LeetCode problem daily with a focus on arrays\n- Interested in learning Data Structures and Algorithms"
       },
       {
         "number": "02",
-        "title": "SecondOpinion",
-        "description": "A doctor to doctor consultation platform for getting a second clinical opinion.",
-        "tech": ["NestJS", "Next.js", "PostgreSQL/Prisma", "BullMQ", "LiveKit"],
-        "long": "- Handled the full case journey, from submission to a specialist picking it up under an SLA, to back and forth questions, to reopening a case later if needed\n- Logged every single step to an audit trail, because nothing says trustworthy healthcare app like receipts for every click\n- Added text, voice notes, and image support to case notes, plus video consults that save their own transcripts so nobody has to take notes\n- Built a no show system that automatically refunds or credits the right person, so no one has to argue about it in an email\n- Set up wallet plus subscription billing that never double charges anyone, and made sure doctors couldn't go live until every document was verified"
+        "title": "Academic Projects",
+        "description": "Built and contributed to team projects including an Attendance Management System and participated in a FinTech hackathon.",
+        "tech": ["JSP", "MySQL", "HTML", "CSS", "Flutter"],
+        "long": "- Built the Attendance Management System as a team academic project — connecting web pages with a database and organizing features around different user roles\n- Participated in a FinTech hackathon exploring how technology could reduce faculty paper-correction workload\n- Tried Flutter through a BMI Calculator learning exercise\n- Planning to improve and expand all projects with better interfaces and more independent implementation"
       }
     ],
-    "learnedTitle": "what i learned",
+    "learnedTitle": "what i've learned",
     "learned": [
-      "product planning (turns out the \"why\" matters too)",
-      "thinking like the person on the other side of the screen",
-      "collaboration (the best solutions rarely belong to one person)",
-      "convincing third-party services to cooperate",
-      "making friends with unfamiliar frameworks"
-      
+      "understanding a problem before writing a solution",
+      "connecting web pages with a database (JDBC & MySQL)",
+      "thinking about user roles and what each person needs",
+      "team-based problem exploration",
+      "learning new frameworks step by step"
     ],
-    "quote": "turns out, software is mostly edge cases",
+    "quote": "progress matters more than perfection",
     "skillsTitle": "skill ratings",
     "skills": [
-      { "name": "communication", "rating": 4 },
-      { "name": "backend thinking", "rating": 4 },
-      { "name": "problem solving", "rating": 5 },
-      { "name": "product planning", "rating": 4 },
-      { "name": "debugging", "rating": 5 }
+      { "name": "patience", "rating": 5 },
+      { "name": "creative thinking", "rating": 4 },
+      { "name": "problem solving", "rating": 3 },
+      { "name": "responsibility", "rating": 5 },
+      { "name": "willingness to learn", "rating": 5 }
     ],
-    "skillsNote": "rated by me, take it with a pinch of salt"
+    "skillsNote": "rated honestly — still growing every day"
   },
   "skillsSection": { "title": "skills", "subtitle": "( my aquarium )" },
   "skills": [
-    { "name": "JavaScript / TypeScript", "detail": "Languages I use to build reliable, type safe web applications." },
-    { "name": "React & Next.js", "detail": "My main frontend toolkit for interactive interfaces and full stack web apps." },
-    { "name": "Node.js / Express / NestJS", "detail": "Backend APIs, services, and application architecture." },
-    { "name": "Python", "detail": "Scripting, automation, and problem solving." },
-    { "name": "MongoDB", "detail": "Document data modeling and application persistence." },
-    { "name": "PostgreSQL / Prisma", "detail": "Relational data modeling, queries, and type safe database access." },
-    { "name": "Socket.IO", "detail": "Real time communication and event driven interfaces." },
-    { "name": "Docker", "detail": "Containerized development and consistent deployments." },
-    { "name": "Redis & BullMQ", "detail": "Caching, queues, and background job processing." }
+    { "name": "Python", "detail": "The language I feel most comfortable using — learning and practicing consistently." },
+    { "name": "Java", "detail": "Basic understanding; core subject I'm actively working to strengthen." },
+    { "name": "C", "detail": "Basic understanding; completed C learning and practice activities on CodeChef." },
+    { "name": "HTML & CSS", "detail": "Learning and exploring web page structure and styling through projects." },
+    { "name": "SQL / MySQL", "detail": "Academic project exposure and database learning through the Attendance Management System." },
+    { "name": "UI/UX Design", "detail": "Area of strong interest — developing design understanding and sensibility." },
+    { "name": "Flutter / Dart", "detail": "Exploring through an introductory BMI calculator learning exercise." }
   ],
   "resume": {
     "title": "resume",
@@ -153,31 +134,36 @@
     "foldedCaption": "",
     "unfoldInstruction": "pull me out!",
     "documentTitle": "quick glance",
-    "documentSubtitle": "A concise version of my work, education, and skills.",
+    "documentSubtitle": "A concise version of my education, projects, and skills.",
     "paragraphs": [
-      "Fourth year CS student at NIT Surat (8.70 CGPA) who ends up owning the most complex part of every project. Think multi step workflows, real time sync, and payment systems that somehow never double charge anyone.",
-      "Comfortable across the stack: React and Next.js on the front, Node, Express, NestJS, and FastAPI on the back, and enough Docker, Redis, and queue experience to build small distributed systems without breaking a sweat (mostly)."
+      "Second-year IT student at Sasi Institute of Technology & Engineering (First-year CGPA: 9.5) who builds practical projects to understand concepts from the inside out. I learn best when I can apply a concept through a small project.",
+      "Currently comfortable with Python, with basic knowledge of Java, C, HTML, CSS, and MySQL. Interested in UI/UX design and actively working toward building a stronger foundation in DSA and full-stack development."
     ],
     "downloadLabel": "download PDF",
     "downloadUrl": "/resume.pdf",
     "foldBackLabel": "fold back",
     "aboutTitle": "about me",
-    "summary": "Fourth year CS student who loves building full stack apps, solving product problems, and learning new things.",
+    "summary": "IT undergraduate who loves learning through projects, exploring design, and building practical skills one step at a time.",
     "educationTitle": "education",
     "education": [
-      { "degree": "B.Tech in Computer Science & Engineering", "school": "NIT Surat", "dates": "2023 to 2027", "cgpa": "CGPA: 8.70" }
+      { "degree": "B.Tech in Information Technology", "school": "Sasi Institute of Technology & Engineering", "dates": "2024 to 2028", "cgpa": "1st Year CGPA: 9.5 | 2nd Year CGPA: 8.6" },
+      { "degree": "Intermediate — MPC", "school": "Sasi Junior College, Palakollu", "dates": "2022 to 2024", "cgpa": "92.5%" },
+      { "degree": "Secondary School Certificate", "school": "Z.P.H. High School, Polavaram", "dates": "2021 to 2022", "cgpa": "GPA: 89.2%" }
     ],
     "skillsTitle": "skills",
     "skills": [
-      "JavaScript / TypeScript",
-      "React / Next.js",
-      "Node.js / Express / NestJS",
-      "MongoDB / PostgreSQL",
-      "Redis / Docker"
+      "Python",
+      "Java (Basic)",
+      "C (Basic)",
+      "HTML & CSS",
+      "SQL / MySQL",
+      "Flutter / Dart (Exploring)"
     ],
-    "experienceTitle": "experience",
+    "experienceTitle": "projects",
     "experience": [
-      { "role": "Software Development Intern", "company": "ReThink", "dates": "May 2026 to July 2026" }
+      { "role": "Attendance Management System", "company": "Team Academic Project", "dates": "JSP, JDBC, MySQL, XAMPP, HTML" },
+      { "role": "BMI Calculator", "company": "Individual Learning Exercise", "dates": "Flutter, Dart" },
+      { "role": "FinTech Hackathon", "company": "Team Participation", "dates": "Problem Exploration & Collaboration" }
     ]
   },
   "contact": {
@@ -191,8 +177,8 @@
     "messageLabel": "i want to say...",
     "messagePlaceholder": "hi! i'd love to...",
     "sendLabel": "send letter",
-    "email": "bhumika.85p@gmail.com",
-    "signoff": "yours, Bhumika",
-    "successMessage": "Thanks, your letter is in. I'll write back once I've had coffee, or slept, whichever comes first."
+    "email": "adabalabhavitha@gmail.com",
+    "signoff": "yours, Bhavitha",
+    "successMessage": "Thanks, your letter is in. I'll write back once I've had some water and tended to my plants — whichever comes first."
   }
 }

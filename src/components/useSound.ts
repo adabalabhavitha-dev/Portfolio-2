@@ -3,6 +3,8 @@ import { createContext, useContext } from "react";
 export type SoundName =
   | "pageFlip"
   | "meow"
+  | "bark"
+  | "woof"
   | "wheel"
   | "rustle"
   | "crumple"

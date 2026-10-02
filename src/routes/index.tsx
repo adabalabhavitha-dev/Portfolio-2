@@ -13,6 +13,7 @@ import {
   ContactSection,
 } from "@/components/sections";
 import { useSound } from "@/components/useSound";
+import { PuppyMascot, PawNavigationEffect } from "@/components/PuppyIllustrations";
 import portfolio from "@/content/portfolio.json";
 
 export const Route = createFileRoute("/")({
@@ -123,8 +124,9 @@ function Sketchbook() {
         ))}
       </div>
 
-      {/* Peeping cat from behind the binding — Desktop only */}
-      <PeepingCat />
+      {/* Professional cartoon puppy mascot peeking from behind the binding — Desktop only */}
+      <PuppyMascot />
+      <PawNavigationEffect activeSection={section} />
 
       {/* Left notebook sidebar (persistent nav) — Desktop only */}
       <div className="hidden md:block">
@@ -180,7 +182,7 @@ function Sketchbook() {
         aria-hidden
         className="pointer-events-none fixed bottom-4 right-6 font-hand text-xl text-ink-soft hidden md:block"
       >
-        — pg. {TABS.findIndex((t) => t.key === section) + 1} —
+        🐾 pg. {TABS.findIndex((t) => t.key === section) + 1} 🐾
       </div>
     </main>
   );
@@ -210,176 +212,7 @@ function SkillsAmbience({ active }: { active: boolean }) {
   return null;
 }
 
-/** Black cat peeking from the bottom left corner — slides diagonally away on hover */
-function PeepingCat() {
-  const [hiding, setHiding] = useState(false);
-  const { play } = useSound();
 
-  return (
-    <>
-      <div
-        aria-hidden
-        className="fixed hidden md:block"
-        style={{
-          left: -20,
-          bottom: -20,
-          zIndex: 25,
-          pointerEvents: "auto",
-          transition: "transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1)",
-          transform: hiding ? "translate(-120px, 120px)" : "translate(0px, 0px)",
-        }}
-        onMouseEnter={() => setHiding(true)}
-        onPointerEnter={() => play("meow")}
-        onMouseLeave={() => setTimeout(() => setHiding(false), 900)}
-      >
-        {/* Bigger, adorable hand-drawn black cat peeking from the corner */}
-        <svg
-          width="150"
-          height="150"
-          viewBox="0 0 150 150"
-          style={{ overflow: "visible", cursor: "pointer" }}
-        >
-          <g style={{ filter: "url(#sketch-wobble)" }}>
-            {/* Main black body curved in the corner */}
-            <path
-              d="M 10 160 C 10 90 70 80 110 120 C 130 140 130 160 130 160 Z"
-              fill="#1a1a1a"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-            />
-            {/* Head peeking out diagonally */}
-            <circle
-              cx="85"
-              cy="85"
-              r="34"
-              fill="#1a1a1a"
-              stroke="var(--color-ink)"
-              strokeWidth="1.8"
-            />
-
-            {/* Ears pointing up-right */}
-            <polygon
-              points="62,60 48,28 78,50"
-              fill="#1a1a1a"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-            />
-            <polygon
-              points="108,60 122,28 92,50"
-              fill="#1a1a1a"
-              stroke="var(--color-ink)"
-              strokeWidth="1.5"
-            />
-
-            {/* Inner ear pink */}
-            <polygon points="64,56 53,38 75,49" fill="#c87a8a" opacity="0.85" />
-            <polygon points="106,56 117,38 95,49" fill="#c87a8a" opacity="0.85" />
-
-            {/* Big yellow eyes */}
-            <ellipse
-              cx="73"
-              cy="80"
-              rx="7"
-              ry="9"
-              fill="#ffd700"
-              stroke="var(--color-ink)"
-              strokeWidth="1"
-            />
-            <ellipse
-              cx="97"
-              cy="80"
-              rx="7"
-              ry="9"
-              fill="#ffd700"
-              stroke="var(--color-ink)"
-              strokeWidth="1"
-            />
-            {/* Pupils */}
-            <ellipse cx="73" cy="81" rx="3.2" ry="7" fill="#111" />
-            <ellipse cx="97" cy="81" rx="3.2" ry="7" fill="#111" />
-            {/* Eye shines */}
-            <circle cx="75" cy="78" r="1.8" fill="white" />
-            <circle cx="99" cy="78" r="1.8" fill="white" />
-
-            {/* Tiny pink nose */}
-            <polygon points="85,91 82,95 88,95" fill="#c87a8a" />
-            {/* Mouth */}
-            <path
-              d="M 82,98 Q 85,100 88,98"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-              fill="none"
-            />
-
-            {/* Whiskers */}
-            <line x1="68" y1="92" x2="38" y2="88" stroke="#555" strokeWidth="1" />
-            <line x1="68" y1="95" x2="36" y2="98" stroke="#555" strokeWidth="1" />
-            <line x1="102" y1="92" x2="132" y2="88" stroke="#555" strokeWidth="1" />
-            <line x1="102" y1="95" x2="134" y2="98" stroke="#555" strokeWidth="1" />
-
-            {/* Paws resting on the page edge */}
-            <ellipse
-              cx="50"
-              cy="130"
-              rx="14"
-              ry="10"
-              fill="#1a1a1a"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-            />
-            <ellipse
-              cx="115"
-              cy="135"
-              rx="14"
-              ry="10"
-              fill="#1a1a1a"
-              stroke="var(--color-ink)"
-              strokeWidth="1.2"
-            />
-            {/* Toe beans */}
-            <circle cx="44" cy="130" r="2" fill="#333" />
-            <circle cx="50" cy="132" r="2" fill="#333" />
-            <circle cx="56" cy="130" r="2" fill="#333" />
-            <circle cx="109" cy="135" r="2" fill="#333" />
-            <circle cx="115" cy="137" r="2" fill="#333" />
-            <circle cx="121" cy="135" r="2" fill="#333" />
-          </g>
-        </svg>
-      </div>
-      <PetTheCatHint hiding={hiding} />
-    </>
-  );
-}
-
-function PetTheCatHint({ hiding }: { hiding: boolean }) {
-  return (
-    <div aria-hidden className="pointer-events-none fixed bottom-24 left-28 z-[26] hidden md:block">
-      <p className="-rotate-6 font-hand text-xl text-ink-soft">{hiding ? "lol" : "try to pet"}</p>
-      <svg
-        width="105"
-        height="75"
-        viewBox="0 0 105 75"
-        fill="none"
-        className="-ml-12 mt-1 text-ink-soft"
-      >
-        <path
-          d="M98 8 C77 10 84 35 59 38 C38 41 42 61 17 62"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeDasharray="4 5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M27 53 L15 62 L29 68"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
-  );
-}
 function TopTabs({
   current,
   onSelect,
@@ -552,7 +385,7 @@ function MobileClipMenu({ onNavigate }: { onNavigate: (key: SectionKey) => void 
               {/* Menu Content */}
               <div className="ml-4 pl-4 flex flex-col h-full">
                 <p className="font-marker text-sm text-ink-soft mb-6 text-center border-b border-dashed border-ink/20 pb-2">
-                  ~ sketchbook index ~
+                  ~ puppy's notebook ~
                 </p>
                 <div className="flex flex-col gap-5 my-auto">
                   {TABS.map((tab) => (

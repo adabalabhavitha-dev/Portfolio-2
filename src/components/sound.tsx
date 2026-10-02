@@ -280,13 +280,64 @@ export function SoundProvider({ children }: { children: ReactNode }) {
           break;
         }
 
-        case "meow": {
-          if (!meowRef.current) {
-            meowRef.current = new Audio("/cat-meow.mp3");
-            meowRef.current.volume = 0.75;
+        case "meow":
+        case "bark":
+        case "woof": {
+          const ctx = ensureCtx();
+          if (ctx) {
+            try {
+              const now = ctx.currentTime;
+              // First playful puppy yip
+              const osc1 = ctx.createOscillator();
+              const gain1 = ctx.createGain();
+              const filter1 = ctx.createBiquadFilter();
+
+              filter1.type = "bandpass";
+              filter1.frequency.setValueAtTime(1050, now);
+              filter1.Q.setValueAtTime(3.5, now);
+
+              osc1.type = "triangle";
+              osc1.frequency.setValueAtTime(520, now);
+              osc1.frequency.exponentialRampToValueAtTime(230, now + 0.11);
+
+              gain1.gain.setValueAtTime(0.001, now);
+              gain1.gain.linearRampToValueAtTime(0.36, now + 0.015);
+              gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.13);
+
+              osc1.connect(filter1);
+              filter1.connect(gain1);
+              gain1.connect(ctx.destination);
+
+              osc1.start(now);
+              osc1.stop(now + 0.14);
+
+              // Cheerful second follow-up yip ("woof-woof!")
+              const osc2 = ctx.createOscillator();
+              const gain2 = ctx.createGain();
+              const filter2 = ctx.createBiquadFilter();
+
+              filter2.type = "bandpass";
+              filter2.frequency.setValueAtTime(1180, now + 0.12);
+              filter2.Q.setValueAtTime(3.0, now + 0.12);
+
+              osc2.type = "triangle";
+              osc2.frequency.setValueAtTime(560, now + 0.12);
+              osc2.frequency.exponentialRampToValueAtTime(250, now + 0.22);
+
+              gain2.gain.setValueAtTime(0.001, now + 0.12);
+              gain2.gain.linearRampToValueAtTime(0.26, now + 0.135);
+              gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
+
+              osc2.connect(filter2);
+              filter2.connect(gain2);
+              gain2.connect(ctx.destination);
+
+              osc2.start(now + 0.12);
+              osc2.stop(now + 0.25);
+            } catch {
+              // fallback
+            }
           }
-          meowRef.current.currentTime = 0;
-          meowRef.current.play().catch(() => {});
           break;
         }
       }
